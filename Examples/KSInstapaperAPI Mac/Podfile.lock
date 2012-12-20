@@ -1,0 +1,17 @@
+
+PODS:
+- AFNetworking (1.0.1)
+- Reachability (3.1.0)
+- SSKeychain (0.1.4)
+
+DEPENDENCIES:
+- AFNetworking (~> 1.0.1)
+- Reachability (~> 3.1.0)
+- SSKeychain (~> 0.1.4)
+
+SPEC CHECKSUMS:
+  AFNetworking: 4c11f857c9a18d65f4257c90a1e74ac49f0ac422
+  Reachability: 1c8584c5f26fa776695efef95caaa50402c94cfb
+  SSKeychain: bae692a4354f48691ca3463a121dc8060f781a7d
+
+COCOAPODS: 0.16.0
