@@ -295,8 +295,22 @@ static NSString * const kKSInstapaperSelectionKey = @"selection";
         [self queueURL:[self URLDictionaryToQueueWithURL:url title:title selection:selection]];
 
         if (block) {
-            NSLog(@"Instapaper Unknown add error: %@", [error localizedDescription]);
-            block(NO, [self instapaperUnknownError]);
+            switch (operation.response.statusCode) {
+                case 400:
+                    block(NO, [self instapaperRateLimitError]);
+                    break;
+                case 401:
+                case 403:
+                    block(NO, [self instapaperCredentialsError]);
+                    break;
+                case 500:
+                    block(NO, [self instapaperServiceError]);
+                    break;
+                default:
+                    NSLog(@"KSInstapaper Unknown Error: %@", [error localizedDescription]);
+                    block(NO, [self instapaperUnknownError]);
+                    break;
+            }
         }
     }];
 }
@@ -539,6 +553,16 @@ NSLocalizedRecoverySuggestionErrorKey : NSLocalizedString(@"Failed to access you
                            userInfo:@{
          NSLocalizedDescriptionKey : NSLocalizedString(@"Instapaper Error", @"Error title"),
 NSLocalizedRecoverySuggestionErrorKey : NSLocalizedString(@"There is no stored Instapaper account.", @"No account error")}];
+}
+
+// The error returned when the user's rate limit is exceeded
+- (NSError *)instapaperRateLimitError
+{
+    return [NSError errorWithDomain:KSInstapaperErrorDomain
+                               code:KSInstapaperRateLimitError
+                           userInfo:@{
+         NSLocalizedDescriptionKey : NSLocalizedString(@"Instapaper Error", @"Error title"),
+NSLocalizedRecoverySuggestionErrorKey : NSLocalizedString(@"Your rate limit for Instapaper has been exceeded. Please try again later.", @"Too many requests error")}];
 }
 
 // The error returned when the error is unknown, to make sure NSAlerts will always be pretty, meanwhile the returned error is logged.
