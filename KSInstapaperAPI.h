@@ -142,7 +142,7 @@ extern NSString * const KSInstapaperErrorDomain;
     If Instapaper connectivity doesn't come back before the application is exited the URLs are stored in NSUserDefaults
         Then the next time the application is launched the stored URLs are taken from NSUserDefaults and it attempts to save them
  */
-- (void)setQueueInstapaperURLs:(BOOL)queue;
+- (void)queueInstapaperURLs:(BOOL)queue;
 
 /*
     This method can be called when you want to forceable reattempt to send the URLs to Instapaper

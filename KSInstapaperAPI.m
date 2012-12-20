@@ -105,7 +105,7 @@ static NSString * const kKSInstapaperSelectionKey = @"selection";
     return self;
 }
 
-- (void)setQueueInstapaperURLs:(BOOL)queue
+- (void)queueInstapaperURLs:(BOOL)queue
 {
     // Set whether or not to queue URLs and immediately store it in the defaults
     self.queueURLs = [NSNumber numberWithBool:queue];
