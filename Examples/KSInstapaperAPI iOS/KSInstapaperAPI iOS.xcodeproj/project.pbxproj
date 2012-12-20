@@ -1,0 +1,341 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5282C8F101134770A177DD32 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A5D6A1D3773479591348ED4 /* libPods.a */; };
+		C2864165168389F5009DC9C4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2864164168389F5009DC9C4 /* UIKit.framework */; };
+		C2864167168389F5009DC9C4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2864166168389F5009DC9C4 /* Foundation.framework */; };
+		C2864169168389F5009DC9C4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2864168168389F5009DC9C4 /* CoreGraphics.framework */; };
+		C286416F168389F5009DC9C4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C286416D168389F5009DC9C4 /* InfoPlist.strings */; };
+		C2864171168389F5009DC9C4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C2864170168389F5009DC9C4 /* main.m */; };
+		C2864175168389F5009DC9C4 /* KSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C2864174168389F5009DC9C4 /* KSAppDelegate.m */; };
+		C2864177168389F5009DC9C4 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = C2864176168389F5009DC9C4 /* Default.png */; };
+		C2864179168389F5009DC9C4 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2864178168389F5009DC9C4 /* Default@2x.png */; };
+		C286417B168389F5009DC9C4 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C286417A168389F5009DC9C4 /* Default-568h@2x.png */; };
+		C286417E168389F5009DC9C4 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C286417C168389F5009DC9C4 /* MainStoryboard.storyboard */; };
+		C2864181168389F5009DC9C4 /* KSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2864180168389F5009DC9C4 /* KSViewController.m */; };
+		C286419216838A58009DC9C4 /* KSInstapaperAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = C286419116838A58009DC9C4 /* KSInstapaperAPI.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		02A931EE939C4951ABD6DE59 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		7A5D6A1D3773479591348ED4 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		C2864160168389F5009DC9C4 /* KSInstapaperAPI iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "KSInstapaperAPI iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C2864164168389F5009DC9C4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		C2864166168389F5009DC9C4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		C2864168168389F5009DC9C4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		C286416C168389F5009DC9C4 /* KSInstapaperAPI iOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "KSInstapaperAPI iOS-Info.plist"; sourceTree = "<group>"; };
+		C286416E168389F5009DC9C4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C2864170168389F5009DC9C4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C2864172168389F5009DC9C4 /* KSInstapaperAPI iOS-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KSInstapaperAPI iOS-Prefix.pch"; sourceTree = "<group>"; };
+		C2864173168389F5009DC9C4 /* KSAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KSAppDelegate.h; sourceTree = "<group>"; };
+		C2864174168389F5009DC9C4 /* KSAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KSAppDelegate.m; sourceTree = "<group>"; };
+		C2864176168389F5009DC9C4 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		C2864178168389F5009DC9C4 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		C286417A168389F5009DC9C4 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		C286417D168389F5009DC9C4 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		C286417F168389F5009DC9C4 /* KSViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KSViewController.h; sourceTree = "<group>"; };
+		C2864180168389F5009DC9C4 /* KSViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KSViewController.m; sourceTree = "<group>"; };
+		C286419016838A58009DC9C4 /* KSInstapaperAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KSInstapaperAPI.h; path = ../../../KSInstapaperAPI.h; sourceTree = "<group>"; };
+		C286419116838A58009DC9C4 /* KSInstapaperAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KSInstapaperAPI.m; path = ../../../KSInstapaperAPI.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C286415D168389F5009DC9C4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C2864165168389F5009DC9C4 /* UIKit.framework in Frameworks */,
+				C2864167168389F5009DC9C4 /* Foundation.framework in Frameworks */,
+				C2864169168389F5009DC9C4 /* CoreGraphics.framework in Frameworks */,
+				5282C8F101134770A177DD32 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C2864155168389F5009DC9C4 = {
+			isa = PBXGroup;
+			children = (
+				C286416A168389F5009DC9C4 /* KSInstapaperAPI iOS */,
+				C2864163168389F5009DC9C4 /* Frameworks */,
+				C2864161168389F5009DC9C4 /* Products */,
+				02A931EE939C4951ABD6DE59 /* Pods.xcconfig */,
+			);
+			sourceTree = "<group>";
+		};
+		C2864161168389F5009DC9C4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C2864160168389F5009DC9C4 /* KSInstapaperAPI iOS.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C2864163168389F5009DC9C4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C2864164168389F5009DC9C4 /* UIKit.framework */,
+				C2864166168389F5009DC9C4 /* Foundation.framework */,
+				C2864168168389F5009DC9C4 /* CoreGraphics.framework */,
+				7A5D6A1D3773479591348ED4 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C286416A168389F5009DC9C4 /* KSInstapaperAPI iOS */ = {
+			isa = PBXGroup;
+			children = (
+				C2864173168389F5009DC9C4 /* KSAppDelegate.h */,
+				C2864174168389F5009DC9C4 /* KSAppDelegate.m */,
+				C286417C168389F5009DC9C4 /* MainStoryboard.storyboard */,
+				C286417F168389F5009DC9C4 /* KSViewController.h */,
+				C2864180168389F5009DC9C4 /* KSViewController.m */,
+				C286418E16838A49009DC9C4 /* KSInstapaperAPI */,
+				C286416B168389F5009DC9C4 /* Supporting Files */,
+			);
+			path = "KSInstapaperAPI iOS";
+			sourceTree = "<group>";
+		};
+		C286416B168389F5009DC9C4 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C286416C168389F5009DC9C4 /* KSInstapaperAPI iOS-Info.plist */,
+				C286416D168389F5009DC9C4 /* InfoPlist.strings */,
+				C2864170168389F5009DC9C4 /* main.m */,
+				C2864172168389F5009DC9C4 /* KSInstapaperAPI iOS-Prefix.pch */,
+				C2864176168389F5009DC9C4 /* Default.png */,
+				C2864178168389F5009DC9C4 /* Default@2x.png */,
+				C286417A168389F5009DC9C4 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C286418E16838A49009DC9C4 /* KSInstapaperAPI */ = {
+			isa = PBXGroup;
+			children = (
+				C286419016838A58009DC9C4 /* KSInstapaperAPI.h */,
+				C286419116838A58009DC9C4 /* KSInstapaperAPI.m */,
+			);
+			name = KSInstapaperAPI;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C286415F168389F5009DC9C4 /* KSInstapaperAPI iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C2864184168389F5009DC9C4 /* Build configuration list for PBXNativeTarget "KSInstapaperAPI iOS" */;
+			buildPhases = (
+				C286415C168389F5009DC9C4 /* Sources */,
+				C286415D168389F5009DC9C4 /* Frameworks */,
+				C286415E168389F5009DC9C4 /* Resources */,
+				CE8C101E31804D92B6C84E0B /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "KSInstapaperAPI iOS";
+			productName = "KSInstapaperAPI iOS";
+			productReference = C2864160168389F5009DC9C4 /* KSInstapaperAPI iOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C2864157168389F5009DC9C4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = KS;
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = "Keith Smiley";
+			};
+			buildConfigurationList = C286415A168389F5009DC9C4 /* Build configuration list for PBXProject "KSInstapaperAPI iOS" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = C2864155168389F5009DC9C4;
+			productRefGroup = C2864161168389F5009DC9C4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C286415F168389F5009DC9C4 /* KSInstapaperAPI iOS */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C286415E168389F5009DC9C4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C286416F168389F5009DC9C4 /* InfoPlist.strings in Resources */,
+				C2864177168389F5009DC9C4 /* Default.png in Resources */,
+				C2864179168389F5009DC9C4 /* Default@2x.png in Resources */,
+				C286417B168389F5009DC9C4 /* Default-568h@2x.png in Resources */,
+				C286417E168389F5009DC9C4 /* MainStoryboard.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		CE8C101E31804D92B6C84E0B /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C286415C168389F5009DC9C4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C2864171168389F5009DC9C4 /* main.m in Sources */,
+				C2864175168389F5009DC9C4 /* KSAppDelegate.m in Sources */,
+				C2864181168389F5009DC9C4 /* KSViewController.m in Sources */,
+				C286419216838A58009DC9C4 /* KSInstapaperAPI.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		C286416D168389F5009DC9C4 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C286416E168389F5009DC9C4 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		C286417C168389F5009DC9C4 /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C286417D168389F5009DC9C4 /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C2864182168389F5009DC9C4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		C2864183168389F5009DC9C4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C2864185168389F5009DC9C4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 02A931EE939C4951ABD6DE59 /* Pods.xcconfig */;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "KSInstapaperAPI iOS/KSInstapaperAPI iOS-Prefix.pch";
+				INFOPLIST_FILE = "KSInstapaperAPI iOS/KSInstapaperAPI iOS-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		C2864186168389F5009DC9C4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 02A931EE939C4951ABD6DE59 /* Pods.xcconfig */;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "KSInstapaperAPI iOS/KSInstapaperAPI iOS-Prefix.pch";
+				INFOPLIST_FILE = "KSInstapaperAPI iOS/KSInstapaperAPI iOS-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C286415A168389F5009DC9C4 /* Build configuration list for PBXProject "KSInstapaperAPI iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C2864182168389F5009DC9C4 /* Debug */,
+				C2864183168389F5009DC9C4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C2864184168389F5009DC9C4 /* Build configuration list for PBXNativeTarget "KSInstapaperAPI iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C2864185168389F5009DC9C4 /* Debug */,
+				C2864186168389F5009DC9C4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C2864157168389F5009DC9C4 /* Project object */;
+}

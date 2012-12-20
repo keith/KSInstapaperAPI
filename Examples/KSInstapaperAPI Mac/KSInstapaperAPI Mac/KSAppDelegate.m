@@ -30,6 +30,11 @@
             NSLog(@"Authorized Username");
         } else {
             NSLog(@"Failed to authorize username: %@", error);
+            
+            if (error.code == KSInstapaperInvalidCredentials) {
+                NSLog(@"Invalid credentials");
+            }
+
             [[NSAlert alertWithError:error] runModal];
         }
     }];
