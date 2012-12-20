@@ -96,4 +96,12 @@ extern NSString * const KSInstapaperErrorDomain;
 */
 - (void)setQueueInstapaperURLs:(BOOL)queue;
 
+/*
+    This method can be called when you want to forceable reattempt to send the URLs to Instapaper
+        EX: When the application is launched you can call it to send whatever URLs there are to Instapaper
+ 
+    Use this when KSInstapaperAPI hasn't been called yet so the Reachability notifiers have not been started
+*/
+- (void)sendQueuedURLsToInstapaper;
+
 @end

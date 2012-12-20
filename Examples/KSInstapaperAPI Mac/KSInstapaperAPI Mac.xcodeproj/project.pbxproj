@@ -297,6 +297,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E26A7808A1DF44EF92E12BCE /* Pods.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "KSInstapaperAPI Mac/KSInstapaperAPI Mac-Prefix.pch";
@@ -310,6 +311,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E26A7808A1DF44EF92E12BCE /* Pods.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "KSInstapaperAPI Mac/KSInstapaperAPI Mac-Prefix.pch";

@@ -58,6 +58,10 @@
         if (sent) {
             NSLog(@"Sent URL successfully");
         } else {
+            if (error.code == KSInstapaperUnreachableURLQueued) {
+                NSLog(@"Queued URL");
+            }
+            
             NSLog(@"Failed to save URL: %@", error);
             [[NSAlert alertWithError:error] runModal];
         }
@@ -65,6 +69,11 @@
 }
 
 #pragma mark - NSApplicationDelegate
+
+- (void)applicationDidFinishLaunching:(NSNotification *)notification
+{
+    [[KSInstapaperAPI sharedClient] sendQueuedURLsToInstapaper];
+}
 
 - (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)sender
 {

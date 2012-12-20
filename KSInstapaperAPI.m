@@ -79,8 +79,9 @@ static NSString * const kKSInstapaperSelectionKey = @"selection";
     
     // Retrieve the previously stored queued URLs and remove them from the defaults
     if ([[NSUserDefaults standardUserDefaults] objectForKey:kKSInstapaperQueuedURLs]) {
+        NSData *data = [NSKeyedUnarchiver unarchiveObjectWithData:[[NSUserDefaults standardUserDefaults] dataForKey:kKSInstapaperQueuedURLs]];
         self.queuedURLs = [NSMutableArray array];
-        self.queuedURLs = [[[NSUserDefaults standardUserDefaults] arrayForKey:kKSInstapaperQueuedURLs] mutableCopy];
+        self.queuedURLs = [data mutableCopy];
         [[NSUserDefaults standardUserDefaults] removeObjectForKey:kKSInstapaperQueuedURLs];
     }
     
@@ -89,7 +90,7 @@ static NSString * const kKSInstapaperSelectionKey = @"selection";
         self.queueURLs = [[NSUserDefaults standardUserDefaults] objectForKey:kKSInstapaperQueueURLsPreference];
     } else {
         self.queueURLs = @YES;
-        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:kKSInstapaperQueueURLsPreference];
+        [[NSUserDefaults standardUserDefaults] setBool:[self.queueURLs boolValue] forKey:kKSInstapaperQueueURLsPreference];
     }
 
     [[NSUserDefaults standardUserDefaults] synchronize];
@@ -102,15 +103,6 @@ static NSString * const kKSInstapaperSelectionKey = @"selection";
     }
 
     return self;
-}
-
-- (void)dealloc
-{
-    // If there are queued URLs store the to the defaults 
-    if (self.queuedURLs && self.queuedURLs.count > 0) {
-        [[NSUserDefaults standardUserDefaults] setObject:self.queuedURLs forKey:kKSInstapaperQueuedURLs];
-        [[NSUserDefaults standardUserDefaults] synchronize];
-    }
 }
 
 - (void)setQueueInstapaperURLs:(BOOL)queue
@@ -258,15 +250,7 @@ static NSString * const kKSInstapaperSelectionKey = @"selection";
                                                        title:title
                                                    selection:selection]];
 
-            Reachability *reach = [Reachability reachabilityWithHostname:kKSInstapaperReachabilityString];
-            [reach setReachableBlock:^(Reachability *reach) {
-                if (reach.isReachable) {
-                    [self sendQueuedURLsToInstapaper];
-                }
-            }];
-            
-            [reach startNotifier];
-
+            [self sendQueuedURLsToInstapaper];
             if (block) {
                 block(NO, [self instapaperUnreachableButURLQueueError]);
             }
@@ -320,29 +304,34 @@ static NSString * const kKSInstapaperSelectionKey = @"selection";
 // Called when the network is back up and tries to send the queued URLs
 - (void)sendQueuedURLsToInstapaper
 {
-    for (NSDictionary *URLDict in self.queuedURLs) {
-        [self sendInstapaperURL:[URLDict valueForKey:kKSDictionaryURLKey]
-                          title:[URLDict valueForKey:kKSDictionaryTitleKey]
-                      selection:[URLDict valueForKey:kKSDictionarySelectionKey]
-                withReturnBlock:^(BOOL sent, NSError *error)
-        {
-            if (sent) {
-                [self.queuedURLs removeObject:URLDict];
-            }
-        }];
+    if (self.queuedURLs.count < 1) {
+        return;
     }
-    
-    if (self.queuedURLs.count > 0) {
-        Reachability *reach = [Reachability reachabilityWithHostname:kKSInstapaperReachabilityString];
-        [reach setReachableBlock:^(Reachability *reach) {
-            if (reach.isReachable) {
-                [self sendQueuedURLsToInstapaper];
-            }
-        }];
-        
-        [reach startNotifier];
+
+    if ([[Reachability reachabilityWithHostname:kKSInstapaperReachabilityString] isReachable]) {
+        for (NSDictionary *URLDict in self.queuedURLs) {
+            [self sendInstapaperURL:[URLDict valueForKey:kKSDictionaryURLKey]
+                              title:[URLDict valueForKey:kKSDictionaryTitleKey]
+                          selection:[URLDict valueForKey:kKSDictionarySelectionKey]
+                    withReturnBlock:^(BOOL sent, NSError *error)
+             {
+                 if (sent) {
+                     [self dequeueURL:URLDict];
+                 }
+             }];
+        }
     } else {
-        self.queuedURLs = nil;
+        static dispatch_once_t onceToken;
+        dispatch_once(&onceToken, ^{
+            Reachability *reach = [Reachability reachabilityWithHostname:kKSInstapaperReachabilityString];
+            [reach setReachableBlock:^(Reachability *rereach) {
+                if (rereach.isReachable) {
+                    [self sendQueuedURLsToInstapaper];
+                }
+            }];
+
+            [reach startNotifier];
+        });
     }
 }
 
@@ -350,6 +339,8 @@ static NSString * const kKSInstapaperSelectionKey = @"selection";
 {
     return @{kKSDictionaryURLKey : url, kKSDictionaryTitleKey : title, kKSDictionarySelectionKey : selection};
 }
+
+#pragma mark - URL Queuing
 
 - (void)queueURL:(NSDictionary *)URLDict
 {
@@ -364,6 +355,25 @@ static NSString * const kKSInstapaperSelectionKey = @"selection";
     if (![self.queuedURLs containsObject:URLDict]) {
         [self.queuedURLs addObject:URLDict];
     }
+
+    // If there are queued URLs store the to the defaults
+    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:self.queuedURLs];
+    [[NSUserDefaults standardUserDefaults] setObject:data forKey:kKSInstapaperQueuedURLs];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+- (void)dequeueURL:(NSDictionary *)URLDict
+{
+    [self.queuedURLs removeObject:URLDict];
+    
+    if (self.queuedURLs.count < 1) {
+        [[NSUserDefaults standardUserDefaults] removeObjectForKey:kKSInstapaperQueuedURLs];
+    } else {
+        NSData *data = [NSKeyedArchiver archivedDataWithRootObject:self.queuedURLs];
+        [[NSUserDefaults standardUserDefaults] setObject:data forKey:kKSInstapaperQueuedURLs];
+    }
+
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 #pragma mark - Helper methods
